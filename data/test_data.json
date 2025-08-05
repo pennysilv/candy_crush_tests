@@ -1,0 +1,95 @@
+{
+  "app_info": {
+    "package_name": "com.king.candycrushsaga",
+    "app_name": "Candy Crush Saga",
+    "expected_elements": {
+      "main_menu": ["Play", "Settings", "Shop"],
+      "game_board": ["Score", "Moves", "Pause"],
+      "level_map": ["Level", "Back"]
+    }
+  },
+  
+  "test_timeouts": {
+    "app_launch": 10,
+    "element_wait": 5,
+    "screen_transition": 3,
+    "loading_screen": 15
+  },
+  
+  "locators": {
+    "play_button": [
+      "//*[contains(@text, 'Play')]",
+      "//*[contains(@content-desc, 'Play')]",
+      "//android.widget.Button[@clickable='true']"
+    ],
+    "settings_button": [
+      "//*[contains(@text, 'Settings')]",
+      "//*[contains(@content-desc, 'Settings')]"
+    ],
+    "back_button": [
+      "//*[contains(@text, 'Back')]",
+      "//*[contains(@content-desc, 'Back')]",
+      "//*[contains(@resource-id, 'back')]"
+    ]
+  },
+  
+  "test_scenarios": {
+    "basic_navigation": {
+      "steps": [
+        "Launch app",
+        "Wait for main menu",
+        "Click Play button",
+        "Verify level map opens",
+        "Go back to main menu"
+      ]
+    },
+    "game_flow": {
+      "steps": [
+        "Open level map",
+        "Select first level", 
+        "Start game",
+        "Make a move",
+        "Check game state"
+      ]
+    }
+  },
+  
+  "expected_screens": {
+    "main_menu": {
+      "identifiers": ["Play", "Candy Crush"],
+      "required_elements": ["play_button"],
+      "optional_elements": ["settings_button", "shop_button"]
+    },
+    "level_map": {
+      "identifiers": ["Level", "Map"],
+      "required_elements": ["level_buttons", "back_button"],
+      "optional_elements": ["stars", "progress"]
+    },
+    "game_board": {
+      "identifiers": ["Score", "Moves"],
+      "required_elements": ["game_grid", "score_display"],
+      "optional_elements": ["boosters", "pause_button"]
+    }
+  },
+  
+  "test_data_sets": {
+    "positive_tests": {
+      "valid_moves": [
+        {"from": [2, 3], "to": [2, 4]},
+        {"from": [1, 1], "to": [1, 2]}
+      ]
+    },
+    "negative_tests": {
+      "invalid_moves": [
+        {"from": [0, 0], "to": [5, 5]},
+        {"from": [-1, -1], "to": [1, 1]}
+      ]
+    }
+  },
+  
+  "performance_benchmarks": {
+    "app_launch_time": 5,
+    "screen_transition_time": 2,
+    "move_response_time": 1
+  }
+}

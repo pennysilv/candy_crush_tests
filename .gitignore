@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+
+# Logs
+logs/
+*.log
+
+# IDE / Editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Reports and artifacts
+reports/**/*.html
+reports/**/*.png
+reports/**/*.xml
+reports/**/*.json
+
+# Appium / Mobile
+appium.log
+*.xcresult
+*.apk
+*.ipa
+
+# Env files & local config
+.env
+.env.*
+
+# Misc
+*.swp
+*~
